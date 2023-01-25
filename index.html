@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>rock paper scissors</title>
+    </head>
+    <body>
+        <script>
+
+
+function getcomputerChoice() {
+    let randomNumber = Math.floor(Math.random() * 3);
+
+    if(randomNumber === 0){
+        computerChoice = "rock"
+    }
+
+    if (randomNumber === 1){
+        computerChoice = "paper"
+    }
+
+    if (randomNumber === 2){
+        computerChoice = "scissors"
+    }
+ }
+
+ getcomputerChoice();
+
+let numbWins = 0;
+let numbLosses = 0;
+
+
+ function playRound(playerSelection,computerSelection) { 
+
+    
+    
+    if(computerSelection === playerSelection){
+        return "It's a tie!"
+    }
+
+    if (computerSelection === "rock" && playerSelection === "paper"){
+        numbWins = ++numbWins
+        return  "You won! You chose paper while the computer chose rock!"  
+
+    }
+
+    if(computerSelection === "rock" && playerSelection === "scissors"){
+        numbLosses = ++numbLosses
+        return "You lost! You chose scissors while the computer chose rock!" 
+
+    }
+
+    if (computerSelection === "paper" && playerSelection === "scissors"){
+        numbLosses = ++numbLosses
+        return "You won! You chose scissors while the computer chose paper!"
+
+ }
+
+    if (computerSelection === "paper" && playerSelection === "rock"){
+        numbLosses = ++numbLosses
+        return "You lost! You chose rock while the computer chose paper!"
+    
+
+    }
+
+    if (computerSelection === "scissors" && playerSelection === "paper"){
+        numbLosses = ++numbLosses
+        return "You lost! You chose paper while the computer chose scissors!"
+
+    }
+
+
+    if (computerSelection === "scissors" && playerSelection === "rock"){
+        numbWins = ++numbWins
+        return "You won! You chose rock while the computer chose scissors!"
+
+        }
+    }
+
+    
+
+
+	function game(){
+
+
+        for (i=0;i < 5;i++){
+
+
+        const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+        const computerSelection = computerChoice;
+
+        getcomputerChoice();
+
+        console.log(playRound(playerSelection,computerSelection));
+
+        console.log(`So far you've won ${numbWins} and lost ${numbLosses}!`)
+        }
+        
+
+
+        if(numbWins > numbLosses){
+            console.log(`You won the game! Final score: ${numbWins} vs ${numbLosses}`)
+        }
+        else if(numbWins < numbLosses){
+            console.log(`You lost the game... Final score: ${numbWins} vs ${numbLosses}`)
+        }
+        else if(numbWins === numbLosses) {
+            console.log(`It's a tie! Final score: ${numbWins} vs ${numbLosses}`)
+        }
+    }
+
+    game()
+
+</script>
+    </body>
+</html>
